@@ -4,7 +4,7 @@
 #Engineers
 - Sam Goodspeed (Lead)
 - Isaiah Mann
-- (additional engineers add yourself here)
+- Chris Cates
 
 #Specs
 - Unity, v5.5.0f3
