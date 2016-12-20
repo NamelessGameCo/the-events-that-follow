@@ -144,7 +144,7 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 
+  iOSTargetOSVersionString: 6.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 
@@ -372,9 +372,15 @@ PlayerSettings:
   webGLUseWasm: 0
   webGLCompressionFormat: 1
   scriptingDefineSymbols: {}
-  platformArchitecture: {}
-  scriptingBackend: {}
-  incrementalIl2cppBuild: {}
+  platformArchitecture:
+    iOS: 2
+  scriptingBackend:
+    Android: 0
+    Standalone: 0
+    WebGL: 1
+    iOS: 1
+  incrementalIl2cppBuild:
+    iOS: 0
   additionalIl2CppArgs: 
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
@@ -410,7 +416,7 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   tizenDeploymentTarget: 
-  tizenDeploymentTargetType: 0
+  tizenDeploymentTargetType: -256
   tizenMinOSVersion: 0
   n3dsUseExtSaveData: 0
   n3dsCompressStaticMem: 1
