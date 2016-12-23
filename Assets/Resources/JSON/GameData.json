@@ -1,0 +1,58 @@
+{
+     "GameStates" :
+     [
+          {
+               "ID" : "WorldGameplay",
+               "ValidTransitionStates" :
+               [
+                    "CombatGameplay",
+                    "Dialogue",
+                    "Menu",
+                    "Cutscene"
+               ],
+               "InputEnabled" : true,
+               "OverworldVisible" : true
+          },
+          {
+               "ID" : "CombatGameplay",
+               "ValidTransitionStates" :
+               [
+                    "WorldGameplay",
+                    "Menu"
+               ],
+               "InputEnabled" : true,
+               "OverworldVisible" : false
+          },
+          {
+               "ID" : "Dialogue",
+               "ValidTransitionStates" :
+               [
+                    "WorldGameplay",
+                    "Menu"
+               ],
+               "InputEnabled" : false,
+               "OverworldVisible" : false
+          },
+          {
+               "ID" : "Menu",
+               "ValidTransitionStates" :
+               [
+                    "WorldGameplay"
+               ],
+               "InputEnabled" : false,
+               "OverworldVisible" : false
+          },
+          {
+               "ID" : "Cutscene",
+               "ValidTransitionStates" :
+               [
+                    "WorldGameplay",
+                    "CombatGameplay",
+                    "Dialogue",
+                    "Menu"
+               ],
+               "InputEnabled" : false,
+               "OverworldVisible" : false
+          }
+     ]
+}

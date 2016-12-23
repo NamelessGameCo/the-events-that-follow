@@ -122,4 +122,9 @@ public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable 
 	protected void scale (float scaleFactor) {
 		scale(transform, scaleFactor);
 	}
+
+	protected T parseClassFromJSON<T> (string pathInResources) {
+		TextAsset json = Resources.Load<TextAsset>(pathInResources);
+		return JsonUtility.FromJson<T>(json.text);
+	}
 }
