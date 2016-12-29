@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIElement : MonoBehaviour {
+public class UIElement : MonoBehaviourExtended {
+	protected RectTransform transform2D;
 	Image image;
 	Text text;
 
@@ -23,15 +24,12 @@ public class UIElement : MonoBehaviour {
 			return alternateSprites.Length > 0;
 		}
 	}
-
-
-	void Awake () {
-		AssignReferences();
-	}
-
-	void AssignReferences () {
+		
+	protected override void SetReferences () {
+		base.SetReferences();
 		image = GetComponentInChildren<Image>();
 		text = GetComponentInChildren<Text>();
+		transform2D = GetComponent<RectTransform>();
 	}
 
 	public void Show () {
