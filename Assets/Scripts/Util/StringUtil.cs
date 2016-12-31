@@ -69,4 +69,13 @@ public static class StringUtil {
 
 		return ContainsPartialSubstring(text, stringToFind, out overloadLoopHole);
 	}
+
+	// Checks if a string equals any string with an array of list of string params
+	public static bool OrEquals (string target, params string[] compares) {
+		bool foundEquivalent = false;
+		foreach (string compare in compares) {
+			foundEquivalent |= target.Equals(compare);
+		}
+		return foundEquivalent;
+	}
 }

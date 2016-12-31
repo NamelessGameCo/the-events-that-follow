@@ -73,13 +73,21 @@ public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable 
 		EventController.OnNamedEvent -= HandleNamedEvent;
 	}
 
-	protected abstract void SetReferences ();
+	protected virtual void SetReferences () {
+		// NOTHING
+	}
 
-	protected abstract void FetchReferences ();
+	protected virtual void FetchReferences () {
+		// NOTHING
+	}
 
-	protected abstract void CleanupReferences ();
+	protected virtual void CleanupReferences () {
+		// NOTHING
+	}
 
-	protected abstract void HandleNamedEvent (string eventName);
+	protected virtual void HandleNamedEvent (string eventName) {
+		// NOTHING
+	}
 
 	public int CompareTo (object other) {
 		if (other is MonoBehaviourExtended) {
@@ -121,5 +129,10 @@ public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable 
 
 	protected void scale (float scaleFactor) {
 		scale(transform, scaleFactor);
+	}
+
+	protected T parseClassFromJSON<T> (string pathInResources) {
+		TextAsset json = Resources.Load<TextAsset>(pathInResources);
+		return JsonUtility.FromJson<T>(json.text);
 	}
 }

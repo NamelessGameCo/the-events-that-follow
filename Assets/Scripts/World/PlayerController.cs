@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class PlayerController : Agent
 {
+	GameBehaviour game;
 
 	//script to receive key inputs and move player sprite
 
 	//Speed variable public for easy manipulation
 	public float baseSpeed = 2;
 	float speed = 2;
-
+	float scaledSpeed {
+		get {
+			return speed * game.worldScale;
+		}
+	}
 	//current movement direction
 	float xVec;
 	float yVec;
@@ -43,6 +48,7 @@ public class PlayerController : Agent
 	// Use this for initialization
 	void Start ()
 	{
+		game = GameBehaviour.Instance;
 		xVec = 0;
 		yVec = 0;
 
@@ -103,7 +109,9 @@ public class PlayerController : Agent
 
 	void ApplyMotion ()
 	{
-		transform.position = new Vector3 (transform.position.x + ((xVec * speed)*Time.deltaTime), transform.position.y + ((yVec * speed) * Time.deltaTime));
+		transform.position = new Vector3 (
+			transform.position.x + ((xVec * scaledSpeed)*Time.deltaTime), 
+			transform.position.y + ((yVec * scaledSpeed) * Time.deltaTime));
 	}
 
 }
