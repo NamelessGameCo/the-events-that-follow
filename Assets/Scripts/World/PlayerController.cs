@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : Agent
 {
+	SpriteRenderer display;
 	GameBehaviour game;
 
 	//script to receive key inputs and move player sprite
@@ -45,10 +46,24 @@ public class PlayerController : Agent
 	//-----------------------------------------------------------------------------------------
 
 
-	// Use this for initialization
-	void Start ()
+	public override bool TryGetPortrait (out Sprite portrait) 
 	{
+		portrait = display.sprite;
+		return true;
+	}
+
+	protected override void SetReferences ()
+	{
+		base.SetReferences ();
+		display = GetComponentInChildren<SpriteRenderer>();
+	}
+
+	// Use this for initialization
+	protected override void FetchReferences ()
+	{
+		base.FetchReferences ();
 		game = GameBehaviour.Instance;
+		ui.SetPlayer(this);
 		xVec = 0;
 		yVec = 0;
 

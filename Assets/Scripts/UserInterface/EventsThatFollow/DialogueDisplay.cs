@@ -11,6 +11,8 @@ public class DialogueDisplay : UIElement {
 	Text dialogeText;
 	[SerializeField]
 	Text speakerName;
+	[SerializeField]
+	Image speakerPortrait;
 
 	public override void Show () {
 		toggleCanvasGroup(canvas, active:true);	
@@ -24,7 +26,8 @@ public class DialogueDisplay : UIElement {
 		this.dialogeText.text = text;
 	}
 
-	public void SetSpeaker (string speakerName) {
+	public void SetSpeaker (string speakerName, Sprite portrait) {
 		this.speakerName.text = speakerName;
+		this.speakerPortrait.sprite = portrait;
 	}
 }

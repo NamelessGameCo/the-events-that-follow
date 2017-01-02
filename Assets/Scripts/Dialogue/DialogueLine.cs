@@ -16,16 +16,15 @@ public class DialogueLine : Data {
 			}
 		}
 	}
-	public string choice;
-	public string Sender;
-	public string Receiever;
+
+	public string Speaker;
 	public string Body;
 	public string[] Responses;
-	public bool FromPlayer;
+	public bool IsPlayer;
 
 	// Used to determine equality
 	public override string ToString () {
-		return string.Format ("[LText: ID={0}, Body={1}, Sender={2}, Receiver={3}, Responses={4}]", ID, Body, Sender, Receiever, ArrayUtil.ToString(Responses));
+		return string.Format ("[Dialogue Line: ID={0}, Body={1}, Speaker={2}, Responses={3}]", ID, Body, Speaker, ArrayUtil.ToString(Responses));
 	}
 
 	public override int GetHashCode () {

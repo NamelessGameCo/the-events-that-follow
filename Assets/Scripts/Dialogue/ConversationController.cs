@@ -4,13 +4,16 @@
  */
 
 using UnityEngine;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ConversationController : SingletonController<ConversationController>, IConversationController {
 	protected StoryController story;
 	const char JOIN_CHAR = '_';
-	const string TEXTING_PATH = "Texting";
+	const string JSON_DIR = "JSON";
+	const string DIALOGUE_DIR = "Dialogue";
+
 	Dictionary<string, DialogueGroup> allConversations;
 
 	public bool TryGetConversation (string conversationName, out DialogueGroup conversation) {
@@ -19,7 +22,7 @@ public class ConversationController : SingletonController<ConversationController
 
 	protected override void SetReferences () {
 		base.SetReferences ();
-		allConversations = parseAllTexts();
+		allConversations = parseAllDialogue();
 	}
 
 	protected override void FetchReferences () {
@@ -27,35 +30,28 @@ public class ConversationController : SingletonController<ConversationController
 		story = StoryController.Instance;
 	}
 
-	Dictionary<string, DialogueGroup> parseAllTexts () {
-		TextAsset[] textAssets = Resources.LoadAll<TextAsset>(TEXTING_PATH);
-		Dictionary<string, DialogueGroup> allTexts = new Dictionary<string, DialogueGroup>();
+	Dictionary<string, DialogueGroup> parseAllDialogue () {
+		TextAsset[] textAssets = Resources.LoadAll<TextAsset>(Path.Combine(JSON_DIR, DIALOGUE_DIR));
+		Dictionary<string, DialogueGroup> allDialogues = new Dictionary<string, DialogueGroup>();
 		foreach (TextAsset text in textAssets) {
 			DialogueGroup newGroup;
 			// Adds the group to the dictionary and sets a local ref to it on a single line
-			allTexts.Add(text.name, newGroup = JsonUtility.FromJson<DialogueGroup>(text.text));
-
+			allDialogues.Add(text.name, newGroup = JsonUtility.FromJson<DialogueGroup>(text.text));
 			// Creates a conversation graph
 			newGroup.CreateConversationGraph();
 		}
-		return allTexts;
+		return allDialogues;
 	}
 
-	string getConversationName (CharacterDescriptor contact) {
-		throw new System.NotImplementedException();
-	}
-
-	public ConversationGraph GetConversation (CharacterDescriptor contact) {
+	public bool TryGetConversation (string conversationID, out ConversationGraph graph) {
 		DialogueGroup group;
-		if (allConversations.TryGetValue(getConversationName(contact), out group)) {
-			return group.Conversation;
+		if (allConversations.TryGetValue(conversationID, out group)) {
+			graph = group.Conversation;
+			return true;
 		} else {
-			return null;
+			graph = null;
+			return false;
 		}
 	}
-
-	// Checks against the current time
-	public bool HasConversationForContactAtTime (CharacterDescriptor contact) {
-		return GetConversation(contact) != null;
-	}
+		
 }

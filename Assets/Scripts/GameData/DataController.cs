@@ -12,7 +12,7 @@ using System.Collections;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataController : SingletonController<DataController>, IDataController {
-	const string DEFAULT_SAVE_PATH = "DefaultLucidSave.dat";
+	const string DEFAULT_SAVE_PATH = "DefaultETFSave.dat";
 
 	StoryController story;
 

@@ -1,0 +1,40 @@
+{
+     "GroupID" : "DialogueExample",
+     "Elements" : [
+               {
+                    "ID" : "1A",
+                    "Speaker" : "Tom Cruise",
+                    "Body" : "Hey, were we ever in a movie together?",
+                    "Responses" : ["2A", "2B", "2C"],
+                    "IsPlayer" : false
+               },
+               {
+                    "ID" : "2A",
+                    "Speaker" : "Meg Ryan",
+                    "Body" : "Yeah, that one with the motorcycle",
+                    "Responses" : ["3A"],
+                    "IsPlayer" : true
+               },
+               {
+                    "ID" : "2B",
+                    "Speaker" : "Meg Ryan",
+                    "Body" : "No, you suck",
+                    "Responses" : ["3A"],
+                    "IsPlayer" : true
+               },
+               {
+                    "ID" : "2C",
+                    "Speaker" : "Meg Ryan",
+                    "Body" : "Danger zone!",
+                    "Responses" : ["3A"],
+                    "IsPlayer" : true
+               },
+               {
+                    "ID" : "3A",
+                    "Speaker" : "Tom Cruise",
+                    "Body" : "Okay.",
+                    "Responses" : [],
+                    "IsPlayer" : false
+               }
+     ]
+}
