@@ -6,6 +6,7 @@ public class UIElement : MonoBehaviourExtended {
 	protected RectTransform transform2D;
 	Image image;
 	Text text;
+	protected CanvasGroup canvas;
 
 	[SerializeField]
 	Sprite[] alternateSprites;
@@ -24,19 +25,25 @@ public class UIElement : MonoBehaviourExtended {
 			return alternateSprites.Length > 0;
 		}
 	}
-		
+	protected bool hasCanvasGroup {	
+		get {
+			return canvas != null;
+		}
+	}
+
 	protected override void SetReferences () {
 		base.SetReferences();
 		image = GetComponentInChildren<Image>();
 		text = GetComponentInChildren<Text>();
+		canvas = GetComponent<CanvasGroup>();
 		transform2D = GetComponent<RectTransform>();
 	}
 
-	public void Show () {
+	public virtual void Show () {
 		gameObject.SetActive(true);
 	}
 
-	public void Hide () {
+	public virtual void Hide () {
 		gameObject.SetActive(false);
 	}
 
@@ -46,9 +53,15 @@ public class UIElement : MonoBehaviourExtended {
 		}
 	}
 
-	public void SetText (string text) {
+	public virtual void SetText (string text) {
 		if (hasText) {
 			this.text.text = text;
 		}
+	}
+
+	protected virtual void toggleCanvasGroup (CanvasGroup canvas, bool active) {
+		canvas.alpha = active ? 1 : 0;
+		canvas.blocksRaycasts = active;
+		canvas.interactable = active;
 	}
 }

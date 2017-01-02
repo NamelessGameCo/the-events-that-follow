@@ -8,5 +8,7 @@ using UnityEngine;
 using System.Collections;
 
 public class AIAgent : Agent {
+	void OnMouseUp () {
 
+	}
 }
