@@ -14,11 +14,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class DataController : SingletonController<DataController>, IDataController {
 	const string DEFAULT_SAVE_PATH = "DefaultLucidSave.dat";
 
-	LStoryController story;
+	StoryController story;
 
 	protected override void FetchReferences () {
 		base.FetchReferences ();
-		story = LStoryController.Instance;
+		story = StoryController.Instance;
 		Load();
 	}
 
@@ -34,7 +34,7 @@ public class DataController : SingletonController<DataController>, IDataControll
 		} catch {
 			file = File.Create(GetSavePath());
 		}
-		LGameSave gameSave = new LGameSave(story.CurrentTime, story.Conversations);
+		GameSave gameSave = new GameSave(story.Conversations);
 		binaryFormatter.Serialize(file, gameSave);
 		file.Close();
 	}
@@ -49,7 +49,7 @@ public class DataController : SingletonController<DataController>, IDataControll
 		FileStream file;
 		try {
 			file = File.Open(GetSavePath(), FileMode.Open);
-			SetGame(binaryFormatter.Deserialize(file) as LGameSave);
+			SetGame(binaryFormatter.Deserialize(file) as GameSave);
 		} catch {
 			Reset();
 			return;
@@ -57,8 +57,8 @@ public class DataController : SingletonController<DataController>, IDataControll
 		file.Close();
 	}
 
-	public void SetGame(LGameSave save) {
-		story.Set(save.Time, save.Conversations);
+	public void SetGame(GameSave save) {
+		story.Set(save.Conversations);
 	}
 
 	public void Reset () {

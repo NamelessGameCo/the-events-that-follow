@@ -11,10 +11,10 @@ public class CharacterController : SingletonController<CharacterController>, ICh
 	const string CONTACTS_DIRECTORY = "Contacts";
 	const string SPRITES_DIRECTORY = "Sprites";
 	const string JSON_FILE_NAME = "Contacts";
-	LJsonController json;
-	ContactGroup contacts;
+	JsonController json;
+	CharacterGroup contacts;
 
-	public ContactGroup IContacts {
+	public CharacterGroup IContacts {
 		get {
 			return contacts;
 		}
@@ -29,7 +29,7 @@ public class CharacterController : SingletonController<CharacterController>, ICh
 		
 	protected override void FetchReferences () {
 		base.FetchReferences ();
-		json = LJsonController.Instance;
+		json = JsonController.Instance;
 		contacts = loadContacts(JsonPath);
 	}
 		
@@ -37,8 +37,8 @@ public class CharacterController : SingletonController<CharacterController>, ICh
 		return Resources.Load<Sprite>(Path.Combine(SpritesPath, spriteName));
 	}
 
-	ContactGroup loadContacts (string jsonPath) {
-		ContactGroup contacts = json.LoadContacts(jsonPath);
+	CharacterGroup loadContacts (string jsonPath) {
+		CharacterGroup contacts = json.LoadContacts(jsonPath);
 		foreach (CharacterDescriptor contact in contacts.Elements) {
 			contact.SpriteContactImage = loadCharacterSprite(contact.SpriteName);
 		}

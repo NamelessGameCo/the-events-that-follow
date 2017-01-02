@@ -3074,6 +3074,36 @@ MonoBehaviour:
   MaxPanSpeed: 0.1
   PanAcceleration: 0.001
   PinchZoomSpeed: 0.001
+--- !u!114 &1433908199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433908197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c63e12362b7417480c35d64187e29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    ID: 
+    Name: 
+    MessagesRecieved: 0
+    MessagesSent: 0
+    SpriteName: 
+    IsMessageUnread: 0
+    IsContact: 0
+--- !u!114 &1433908200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433908197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29417e0f102740d89696f7497acec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502280004
 GameObject:
   m_ObjectHideFlags: 0
