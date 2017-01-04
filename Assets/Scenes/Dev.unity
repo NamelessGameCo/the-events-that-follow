@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.5748249, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1408,6 +1408,26 @@ PolygonCollider2D:
       - {x: 0.55, y: -1.24}
       - {x: 0.61, y: -1.17}
       - {x: 0.71999997, y: -1.17}
+--- !u!50 &905372208
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905372203}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 27738.5
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &911783564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,8 +1455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951b5a3c7eb6445a785a328a93b683a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followDistance: 1000
-  playerRef: {fileID: 0}
+  followDistance: 100
+  playerRef: {fileID: 905372206}
 --- !u!4 &911783566
 Transform:
   m_ObjectHideFlags: 0
@@ -2504,7 +2524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1291492480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: -4.98, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 806294741}
@@ -3238,8 +3258,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1536457765}
   - component: {fileID: 1536457767}
-  - component: {fileID: 1536457766}
   - component: {fileID: 1536457768}
+  - component: {fileID: 1536457769}
+  - component: {fileID: 1536457766}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -3322,6 +3343,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayedInfo: This is an apple
   infoOffset: {x: 0, y: 100, z: 0}
+--- !u!50 &1536457769
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536457764}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 1
+  m_Mass: 5418.7397
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1543314894
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,8 +3884,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1785921861}
   - component: {fileID: 1785921862}
-  - component: {fileID: 1785921864}
   - component: {fileID: 1785921863}
+  - component: {fileID: 1785921864}
+  - component: {fileID: 1785921865}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -3912,8 +3954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryConversationID: DialogueExample
---- !u!61 &1785921864
-BoxCollider2D:
+--- !u!60 &1785921864
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -3924,8 +3966,66 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1.25, y: 2.56}
+  m_Points:
+    m_Paths:
+    - - {x: 0.68, y: -1.02}
+      - {x: 0.68, y: -0.91999996}
+      - {x: 0.34, y: -0.41}
+      - {x: 0.42, y: 0.16}
+      - {x: 0.42999998, y: 0.45}
+      - {x: 0.35999998, y: 0.58}
+      - {x: 0.24, y: 0.64}
+      - {x: 0.29999998, y: 0.79999995}
+      - {x: 0.39999998, y: 0.87}
+      - {x: 0.51, y: 0.98999995}
+      - {x: 0.5, y: 1.04}
+      - {x: 0.44, y: 1.09}
+      - {x: 0.11, y: 1.1899999}
+      - {x: -0.06, y: 1.26}
+      - {x: -0.12, y: 1.26}
+      - {x: -0.19, y: 1.24}
+      - {x: -0.48999998, y: 1.09}
+      - {x: -0.63, y: 1.01}
+      - {x: -0.63, y: 0.96999997}
+      - {x: -0.56, y: 0.89}
+      - {x: -0.32, y: 0.59}
+      - {x: -0.42, y: 0.59}
+      - {x: -0.51, y: 0.52}
+      - {x: -0.53, y: 0.45}
+      - {x: -0.55, y: 0.35}
+      - {x: -0.55, y: 0.089999996}
+      - {x: -0.53, y: -0.02}
+      - {x: -0.53, y: -0.24}
+      - {x: -0.56, y: -0.32999998}
+      - {x: -0.59, y: -0.9}
+      - {x: -0.63, y: -0.96999997}
+      - {x: -0.63, y: -1.05}
+      - {x: -0.61, y: -1.13}
+      - {x: -0.53999996, y: -1.1899999}
+      - {x: -0.41, y: -1.26}
+      - {x: 0.39999998, y: -1.26}
+      - {x: 0.57, y: -1.18}
+      - {x: 0.63, y: -1.12}
+--- !u!50 &1785921865
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1785921860}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 1
+  m_Mass: 24108
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1875485171
 GameObject:
   m_ObjectHideFlags: 0
