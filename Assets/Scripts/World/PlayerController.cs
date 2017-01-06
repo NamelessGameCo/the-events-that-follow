@@ -120,14 +120,24 @@ public class PlayerController : Agent
 					
 
 	}
+
 	//-----------------------------------------------------------------------------------------
 
 	void ApplyMotion ()
 	{
 		transform.position = new Vector3 (
-			transform.position.x + ((xVec * scaledSpeed)*Time.deltaTime), 
+			transform.position.x + ((xVec * scaledSpeed) * Time.deltaTime), 
 			transform.position.y + ((yVec * scaledSpeed) * Time.deltaTime));
 	}
+
+	//-----------------------------------------------------------------------------------------
+
+	//Safe to use 'get' functions for objects that need to reference/follow player movement (like camera)	
+	public float GetScaledSpeed(){
+		return scaledSpeed;
+	}
+
+	
 
 }
 

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAudioListener: 0
-  playMusicOnInit: 1
+  playMusicOnInit: 0
   mainMusicEventName: PlayTest
   ShortestSweetenerPlayFrequenecy: 10
   LongestSweetenerPlayFrequenecy: 25
