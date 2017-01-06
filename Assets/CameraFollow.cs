@@ -5,7 +5,12 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviourExtended
 {
 
-	public float followDistance;
+	//Script written by Sam Goodspeed 1/6/17
+	//Code for main camera to follow player, with a 'dead-space' at center of screen for user to 
+	//make small adjustments to position freely without being followed 
+
+	[SerializeField]
+	float followDistance;
 	public Transform playerRef;
 
 	bool xFlag = false;
@@ -14,7 +19,7 @@ public class CameraFollow : MonoBehaviourExtended
 	float xVec = 0;
 	float yVec = 0;
 
-	//Vector3 tempNormal;
+
 
 
 	//---------------------------------------------------------------------------------------
@@ -32,8 +37,6 @@ public class CameraFollow : MonoBehaviourExtended
 	{
 		CheckNodeDistance ();
 		ApplyCameraMotion ();
-
-		//transform.position = Vector2.Lerp (transform.position, playerRef.position, Time.deltaTime);
 
 
 
@@ -75,15 +78,10 @@ public class CameraFollow : MonoBehaviourExtended
 		} else {
 			yFlag = false;
 		}
-
-		//Update normalized vector pointing FROM FocusNode TO player
-		//tempNormal = Vector3.Normalize(playerRef.position - transform.position);
-		//print (tempNormal);
+			
 
 		xVec = Mathf.Sign(playerRef.position.x - transform.position.x);
 		yVec = Mathf.Sign(playerRef.position.y - transform.position.y);
-
-		print (xVec + " " + yVec);
 
 	}
 
@@ -91,7 +89,7 @@ public class CameraFollow : MonoBehaviourExtended
 
 	void ApplyCameraMotion(){
 		//Get scaled speed from player
-		float tempSpeed = playerRef.GetComponent<PlayerController> ().GetScaledSpeed ();
+		float tempSpeed = playerRef.GetComponent<PlayerController> ().GetScaledSpeed();
 
 
 
