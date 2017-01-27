@@ -5,6 +5,7 @@
 - Sam Goodspeed (Lead)
 - Isaiah Mann
 - Chris Cates
+- Charles Teese
 - (additional engineers add yourself here)
 
 #Specs
