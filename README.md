@@ -6,6 +6,7 @@
 - Isaiah Mann
 - Chris Cates
 - Charles Teese
+- Li Chai
 - (additional engineers add yourself here)
 
 #Specs
