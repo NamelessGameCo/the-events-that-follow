@@ -2,10 +2,10 @@
 ## Created by Jesse Ditkoff
 
 #Engineers
-- Sam Goodspeed (Lead)
+- Charles Teese (Lead)
+- Sam Goodspeed
 - Isaiah Mann
 - Chris Cates
-- Charles Teese
 - Li Chai
 - (additional engineers add yourself here)
 
